@@ -1,0 +1,13 @@
+type PriceTicker {
+  symbol: String!
+  price: String!
+}
+
+type Query {
+  priceTicker(symbol: String!): PriceTicker
+    @rest(
+      method: GET
+      endpoint: "https://api.binance.com/api/v3/ticker/price"
+      
+    )
+}

@@ -1,0 +1,2 @@
+  extend schema @sdl(files: ["api/price_ticker.graphql", "api/ticker_24hr.graphql", "api/klines.graphql"])
+ 

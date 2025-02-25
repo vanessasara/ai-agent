@@ -1,0 +1,16 @@
+type CryptoPrice {
+  USD: String  
+}
+
+type Query {
+  cryptoPrice(fsym: String!, tsyms: String!): CryptoPrice
+    @rest(
+      method: GET
+      endpoint: "https://min-api.cryptocompare.com/data/pricemulti?fsyms=BTC&tsyms=USD"
+      arguments: [
+        { name: "fsym", graphqlArg: "fsym" }
+        { name: "tsyms", graphqlArg: "tsyms" }
+      ]
+    )
+}
+

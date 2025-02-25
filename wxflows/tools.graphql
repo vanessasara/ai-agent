@@ -19,7 +19,6 @@
 # [[ end of tool definition example ]]
 
 extend type Query {
-  # Existing Tools
   youtube_transcript: TC_GraphQL
     @supplies(query: "tc_tools")
     @materializer(
@@ -33,7 +32,6 @@ extend type Query {
         { name: "fields", const: "transcript" }
       ]
     )
-
   curl_comments: TC_GraphQL
     @supplies(query: "tc_tools")
     @materializer(
@@ -47,7 +45,6 @@ extend type Query {
         { name: "fields", const: "dummyCommentsQuery" }
       ]
     )
-
   customer_data: TC_GraphQL
     @supplies(query: "tc_tools")
     @materializer(
@@ -61,7 +58,6 @@ extend type Query {
         { name: "fields", const: "myQuery" }
       ]
     )
-
   google_books: TC_GraphQL
     @supplies(query: "tc_tools")
     @materializer(
@@ -75,7 +71,6 @@ extend type Query {
         { name: "fields", const: "books|book" }
       ]
     )
-
   wikipedia: TC_GraphQL
     @supplies(query: "tc_tools")
     @materializer(
@@ -86,47 +81,17 @@ extend type Query {
         { name: "fields", const: "search|page" }
       ]
     )
-
-  # New Binance Market Analysis Tools
-  binancePriceTicker: TC_GraphQL
-    @supplies(query: "tc_tools")
-    @materializer(
-      query: "tc_graphql_tool"
-      arguments: [
-        { name: "name", const: "price_ticker" }
-        {
-          name: "description"
-          const: "Retrieve the current price of a cryptocurrency trading pair from Binance. Provide the symbol (e.g., BTCUSDT) to get the latest price."
-        }
-        { name: "fields", const: "priceTicker" }
-      ]
-    )
-
-  binanceTicker24hr: TC_GraphQL
-    @supplies(query: "tc_tools")
-    @materializer(
-      query: "tc_graphql_tool"
-      arguments: [
-        { name: "name", const: "ticker_24hr" }
-        {
-          name: "description"
-          const: "Retrieve 24-hour price change statistics for a cryptocurrency trading pair from Binance. Provide the symbol (e.g., BTCUSDT) to get details like price change percentage, last price, and volume."
-        }
-        { name: "fields", const: "ticker24hr" }
-      ]
-    )
-
-  binanceKlines: TC_GraphQL
-    @supplies(query: "tc_tools")
-    @materializer(
-      query: "tc_graphql_tool"
-      arguments: [
-        { name: "name", const: "klines" }
-        {
-          name: "description"
-          const: "Retrieve historical candlestick data for a cryptocurrency trading pair from Binance. Provide symbol (e.g., BTCUSDT), interval (e.g., 1h for hourly), and limit (e.g., 24 for last 24 hours) to get price and volume trends."
-        }
-        { name: "fields", const: "klines" }
-      ]
-    )
+cryptoPrice: TC_GraphQL
+  @supplies(query: "tc_tools")
+  @materializer(
+    query: "tc_graphql_tool"
+    arguments: [
+      { name: "name", const: "cryptoPrice" }
+      { name: "description", const: "Retrieve the current price of a cryptocurrency from CryptoCompare. Provide the symbol (e.g., BTC) and currency (e.g., USD)." }
+      { name: "fields", const: "cryptoPrice" }
+    ]
+  )
 }
+
+
+

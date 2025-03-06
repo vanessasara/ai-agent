@@ -7,8 +7,6 @@ schema
       "google_books/index.graphql"
       "wikipedia/index.graphql"
       "curl-01/index.graphql"
-      "curl-02/index.graphql"
-      "cryptoPrice/index.graphql"
     ]
   ) {
   query: Query

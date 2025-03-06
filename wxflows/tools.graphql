@@ -81,17 +81,4 @@ extend type Query {
         { name: "fields", const: "search|page" }
       ]
     )
-cryptoPrice: TC_GraphQL
-  @supplies(query: "tc_tools")
-  @materializer(
-    query: "tc_graphql_tool"
-    arguments: [
-      { name: "name", const: "cryptoPrice" }
-      { name: "description", const: "Retrieve the current price of a cryptocurrency from CryptoCompare. Provide the symbol (e.g., BTC) and currency (e.g., USD)." }
-      { name: "fields", const: "cryptoPrice" }
-    ]
-  )
 }
-
-
-
